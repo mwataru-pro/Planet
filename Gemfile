@@ -60,3 +60,14 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'devise'
+gem 'kaminari'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem 'refile-mini_magick'
+gem 'pry-byebug'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'bootstrap'
+gem 'jquery-rails', '~> 4.3.1'
+gem 'summernote-rails', '~> 0.8.10.0'
+gem 'simple_form'
