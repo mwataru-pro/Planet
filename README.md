@@ -1,4 +1,4 @@
-# プラネット(Plant&Network)
+# プラネット(Plant&Network)![planet_logo](https://user-images.githubusercontent.com/62271857/85227067-d0e1e700-b415-11ea-9890-305a4fee16d0.png)
 
 ## サイト概要
 観葉植物専門の交流サイト<br>
