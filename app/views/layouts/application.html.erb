@@ -7,9 +7,40 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/b590762531.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="image"><%= image_tag 'main-image.jpg' %></div>
+
+    <div class="wrapper">
+      <header id="header">
+        <nav class="nav">
+          <ul class="nav-list">
+          <!-- 会員がサインインしている時 -->
+          <% if user_signed_in? %>
+            <li><%= link_to user_path(current_user.id) do %><i class="far fa-user"></i> My page<% end %></li>
+            <li><%= link_to articles_path do %><i class="far fa-newspaper"></i> Articles<% end %></li>
+            <li><%= link_to post_images_path do %><i class="fab fa-pagelines"></i> Plants<% end %></li>
+            <li><%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-sign-out-alt"></i> Sign out<% end %></li>
+          <!-- 管理者がログインしている時 -->
+          <% elsif admin_signed_in? %>
+            <li>My page</li>
+            <li>Articles</li>
+            <li>Plants</li>
+            <li>Log out</li>
+          <!-- ログインしていない時 -->
+          <% else %>
+            <li><%= link_to about_path do %><i class="fas fa-globe-americas"></i> About this site<% end %></li>
+            <li><%= link_to articles_path do %><i class="far fa-newspaper"></i> Articles<% end %></li>
+            <li><%= link_to post_images_path do %><i class="fab fa-pagelines"></i> Plants<% end %></li>
+            <li><%= link_to new_user_session_path do %><i class="fas fa-sign-in-alt"></i> Sign in<% end %></li>
+            <li><%= link_to new_user_registration_path do %><i class="fas fa-user-plus"></i> Sign up<% end %></li>
+          <% end %>
+          </ul>
+        </nav>
+      </header><!-- /header -->
+      <%= yield %>
+    </div>
   </body>
 </html>

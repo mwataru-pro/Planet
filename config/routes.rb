@@ -16,8 +16,7 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about'
   resources :post_images
   resources :users, only: [:index, :show, :edit, :update]
-  get 'users/index'
-  get 'users/show'
+  resources :articles, only: [:index, :show]
 
   namespace :admin do
     root 'homes#top'
