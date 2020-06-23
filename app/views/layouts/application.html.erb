@@ -11,10 +11,15 @@
   </head>
 
   <body>
-    <div class="image"><%= image_tag 'main-image.jpg' %></div>
+    <div class="main-visual">
+      <div class="image">
+        <%= image_tag 'main-visual.jpg' %>
+      </div>
+    </div>
 
     <div class="wrapper">
       <header id="header">
+        <div class="logo"></div>
         <nav class="nav">
           <ul class="nav-list">
           <!-- 会員がサインインしている時 -->
@@ -25,10 +30,9 @@
             <li><%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-sign-out-alt"></i> Sign out<% end %></li>
           <!-- 管理者がログインしている時 -->
           <% elsif admin_signed_in? %>
-            <li>My page</li>
-            <li>Articles</li>
-            <li>Plants</li>
-            <li>Log out</li>
+            <li><%= link_to admin_articles_path do %><i class="far fa-newspaper"></i> Articles<% end %></li>
+            <li><%= link_to admin_post_images_path do %><i class="fab fa-pagelines"></i> Plants<% end %></li>
+            <li><%= link_to destroy_admin_session_path, method: :delete do %><i class="fas fa-sign-out-alt"></i> Sign out<% end %></li>
           <!-- ログインしていない時 -->
           <% else %>
             <li><%= link_to about_path do %><i class="fas fa-globe-americas"></i> About this site<% end %></li>
