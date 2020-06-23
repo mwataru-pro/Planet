@@ -17,3 +17,56 @@
 @import "bootstrap";
 @import "summernote-bs4";
 @import "summernote-custom-theme.min";
+
+/* 画像 */
+.image {
+  width: 520px;
+  height: 800px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* メイン */
+.wrapper {
+  padding: 280px 30px 50px 50px;
+  position: relative;
+  width: calc(100% - 520px); /* calc() 関数は、 CSSのプロパティ値を指定する際に計算を行うことができるもの */
+  left: 520px;
+}
+
+.nav {
+  text-align: right;
+  position: fixed;
+  top: 20px;
+  right: 30px;
+}
+
+.nav-list {
+  list-style: none;
+}
+
+.nav ul li {
+  margin-bottom: 15px;
+  a {
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
+  }
+  a:hover {
+    color: white;
+    background-color: mediumseagreen;
+  }
+}
+
+/* ページタイトル */
+.page-title {
+  color: limegreen;
+  font-size: 50px;
+  text-align: right;
+}
+
+.page-title-translate {
+  color: limegreen;
+  text-align: right;
+}
