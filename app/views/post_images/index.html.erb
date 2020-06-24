@@ -14,18 +14,18 @@
       <div class="col-1"></div>
       <div class="col-8 post-container">
         <div class="text-center">
-          <%= attachment_image_tag post_image, :image, width: "100%", height: "100%", fallcack: "no-image2.png" %>
+          <%= link_to post_image_path(post_image.id) do%>
+            <%= attachment_image_tag post_image, :image, width: "100%", height: "100%", fallcack: "no-image2.png" %>
+          <% end %>
         </div>
         <div class="block-content">
           <%= image_tag('noimage.png', class: "rounded-circle float-left", width: "70px", height: "70px") %>
-          <h4 style="display: inline; font-size: 18px;">
-            <%= link_to post_image_path(post_image.id) do%>
-              <%= post_image.title %>
-            <% end %>
+          <h4 style="display: inline; font-size: 18px; margin-left: 10px; ">
+            <%= post_image.title %>
           </h4><br>
           <ul class="post-details">
             <li>By <%= post_image.user.name %>　</li>
-            <li><i class="far fa-heart"></i> 0　</li>
+            <li><i class="far fa-heart"></i> <%= post_image.favorites.count %>　</li>
             <li><a href="#">コメント 0</a></li>
           </ul>
         </div>

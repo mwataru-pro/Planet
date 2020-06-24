@@ -1,2 +1,44 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+        <h1 class="page-title text-right">My page</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p class="page-title-translate"><%= @user.name %>のマイページ</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <!-- ユーザー詳細 -->
+    <div class="col-10 users-container mt-5" style="width: 100%;">
+      <div class="user-profile" style="border: solid black 2px;">
+        <%= attachment_image_tag @user, :profile_image, class: "rounded-circle float-left", size: "100x100" ,fallback: "noimage.png" %>
+        <p style="">名前　：　<%= @user.name %></p>
+        <p>メールアドレス　：　<%= @user.email %></p>
+        <%= link_to '更新', edit_user_path(@user.id), class: "btn btn-success" %>
+      </div>
+      <div class="user-postitem" style="margin-top: 40px;">
+        <table class="table">
+          <tbody>
+            <% @post_images.each do |post_image| %>
+            <tr class="text-center">
+              <td>
+                <%= link_to post_image_path(post_image) do %>
+                  <%= attachment_image_tag post_image, :image, size:"70x70", class: "shadow border border-secondary" %>
+                <% end %>
+              </td>
+              <td class="align-middle"><%= post_image.title %></td>
+              <td class="align-middle"><%= link_to 'Edit', edit_post_image_path(post_image) %></td>
+              <td class="align-middle"><%= link_to 'Destory', post_image_path(post_image), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- /ユーザー詳細 -->
+    <div class="col-1"></div>
+  </div>
+</div>
