@@ -23,7 +23,7 @@
         <p style="font-size: 18px; margin: 0;"><%= simple_format(@post_image.content) %></p>
       </div>
       <div class="post-users-content">
-          <%= image_tag('noimage.png', class: "rounded-circle float-left", width: "60px", height: "60px") %>
+          <%= attachment_image_tag @post_image.user, :profile_image, class: "rounded-circle float-left", size: "60x60" ,fallback: "noimage.png" %>
           <ul class="post-details">
             <li>By <%= @post_image.user.name %>　</li>
             <!-- いいね機能 -->
