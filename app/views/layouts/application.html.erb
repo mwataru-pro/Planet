@@ -8,38 +8,39 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/b590762531.js" crossorigin="anonymous"></script>
+    <%= favicon_link_tag('favicon.ico') %>
   </head>
 
   <body>
-    <div class="main-visual">
-      <div class="image">
-        <%= image_tag 'main-visual.jpg' %>
+    <div class="main-visual d-none d-sm-block">
+      <div class="images">
+        <%= image_tag 'main-visual-blue.jpg' %>
       </div>
     </div>
 
-    <div class="wrapper">
-      <header id="header">
-        <div class="logo"></div>
+    <div class="wrapper" style="position: relative;">
+      <header id="header" style="z-index: 1;">
+        <!-- <div class="logo"></div> -->
         <nav class="nav">
           <ul class="nav-list">
           <!-- 会員がサインインしている時 -->
           <% if user_signed_in? %>
-            <li><%= link_to user_path(current_user.id) do %><i class="far fa-user"></i> My page<% end %></li>
-            <li><%= link_to articles_path do %><i class="far fa-newspaper"></i> Articles<% end %></li>
-            <li><%= link_to post_images_path do %><i class="fab fa-pagelines"></i> Plants<% end %></li>
-            <li><%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-sign-out-alt"></i> Sign out<% end %></li>
+            <li><%= link_to user_path(current_user.id), class: "rounded-pill" do %><i class="far fa-user"></i> My page<% end %></li>
+            <li><%= link_to articles_path, class: "rounded-pill" do %><i class="far fa-newspaper"></i> Articles<% end %></li>
+            <li><%= link_to post_images_path, class: "rounded-pill" do %><i class="fab fa-pagelines"></i> Plants<% end %></li>
+            <li><%= link_to destroy_user_session_path, method: :delete, class: "rounded-pill" do %><i class="fas fa-sign-out-alt"></i> Sign out<% end %></li>
           <!-- 管理者がログインしている時 -->
           <% elsif admin_signed_in? %>
-            <li><%= link_to admin_articles_path do %><i class="far fa-newspaper"></i> Articles<% end %></li>
-            <li><%= link_to admin_post_images_path do %><i class="fab fa-pagelines"></i> Plants<% end %></li>
-            <li><%= link_to destroy_admin_session_path, method: :delete do %><i class="fas fa-sign-out-alt"></i> Sign out<% end %></li>
+            <li><%= link_to admin_articles_path, class: "rounded-pill" do %><i class="far fa-newspaper"></i> Articles<% end %></li>
+            <li><%= link_to admin_post_images_path, class: "rounded-pill" do %><i class="fab fa-pagelines"></i> Plants<% end %></li>
+            <li><%= link_to destroy_admin_session_path, method: :delete, class: "rounded-pill" do %><i class="fas fa-sign-out-alt"></i> Sign out<% end %></li>
           <!-- ログインしていない時 -->
           <% else %>
-            <li><%= link_to about_path do %><i class="fas fa-globe-americas"></i> About this site<% end %></li>
-            <li><%= link_to articles_path do %><i class="far fa-newspaper"></i> Articles<% end %></li>
-            <li><%= link_to post_images_path do %><i class="fab fa-pagelines"></i> Plants<% end %></li>
-            <li><%= link_to new_user_session_path do %><i class="fas fa-sign-in-alt"></i> Sign in<% end %></li>
-            <li><%= link_to new_user_registration_path do %><i class="fas fa-user-plus"></i> Sign up<% end %></li>
+            <li><%= link_to about_path, class: "rounded-pill" do %><i class="fas fa-globe-americas"></i> About this site<% end %></li>
+            <li><%= link_to articles_path, class: "rounded-pill" do %><i class="far fa-newspaper"></i> Articles<% end %></li>
+            <li><%= link_to post_images_path, class: "rounded-pill" do %><i class="fab fa-pagelines"></i> Plants<% end %> </li>
+            <li><%= link_to new_user_session_path, class: "rounded-pill" do %><i class="fas fa-sign-in-alt"></i> Sign in<% end %></li>
+            <li><%= link_to new_user_registration_path, class: "rounded-pill" do %><i class="fas fa-user-plus"></i> Sign up<% end %></li>
           <% end %>
           </ul>
         </nav>

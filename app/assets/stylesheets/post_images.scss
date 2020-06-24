@@ -1,3 +1,48 @@
 // Place all the styles related to the post_images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* new.html */
+
+.new-form {
+  margin-top: 50px;
+}
+
+.new-field {
+  margin-top: 30px;
+}
+
+/* index.html */
+
+.post-container {
+  border: solid black 1px;
+  margin-bottom: 30px;
+}
+
+.post-details {
+  margin: 0;
+  padding: 15px 0 0 15px;
+  list-style: none;
+  display: inline-block;
+  li {
+    display: inline-block;
+  }
+}
+
+/* show.html */
+
+.post_images_container {
+  width: 100%;
+  border: solid gray 2px;
+  border-radius: 30px 30px 30px 30px;
+}
+
+.attachment.post_image.image {
+  margin: 20px 0;
+}
+
+/* 共通 */
+
+.col-12 {
+  padding: 0;
+}
