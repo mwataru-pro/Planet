@@ -1,0 +1,54 @@
+<div class="comment-title" style="width: 80%; margin: 20px auto 0; border-bottom: double lightgray 1px;">
+  <h6>コメント<%= post_image.comments.count %>件</h6>
+</div>
+  <div class="more" style="width: 80%; margin: 0 auto;">
+    <h6 class="text-muted btn" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Show more...
+    </h6>
+  </div>
+  <!-- コメント２件分の記述 -->
+    <% post_image.comments.first(2).each do |post_comment| %>
+      <div class="comment-index clearfix" style="width: 80%; margin: 15px auto; border: solid gray 1px; padding: 10px;">
+        <div class="comment-avatar float-left" style="margin: 0 20px 0 0">
+          <%= attachment_image_tag post_comment.user, :profile_image, class: "rounded-circle", size:'50x50',　fallback: "no_image.jpg" %>
+        </div>
+        <div class="comment-text float-left">
+          <span><%= post_comment.user.name %></span>
+          <div class="comment-entry">
+            <%= post_comment.comment %>
+            <% if post_comment.user == current_user %>
+              <%= link_to post_image_comment_path(post_comment.post_image.id, post_comment.id), method: :delete, remote: true do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <span class="text-muted font-weight-lighter float-right" style="font-size: 13px;">
+          <%= post_comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+        </span>
+      </div>
+    <% end %>
+  <!-- コメント３件目以降の記述 -->
+    <div class="collapse" id="collapseExample">
+      <% post_image.comments.offset(2).each do |post_comment| %>
+      <div class="comment-index clearfix" style="width: 80%; margin: 15px auto; border: solid gray 1px; padding: 10px;">
+        <div class="comment-avatar float-left" style="margin: 0 20px 0 0">
+          <%= attachment_image_tag post_comment.user, :profile_image, class: "rounded-circle", size:'50x50',　fallback: "no_image.jpg" %>
+        </div>
+        <div class="comment-text float-left">
+          <span><%= post_comment.user.name %></span>
+          <div class="comment-entry">
+            <%= post_comment.comment %>
+            <% if post_comment.user == current_user %>
+              <%= link_to post_image_comment_path(post_comment.post_image.id, post_comment.id), method: :delete, remote: true do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <span class="text-muted font-weight-lighter float-right" style="font-size: 13px;">
+          <%= post_comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+        </span>
+      </div>
+    <% end %>
+  </div>
