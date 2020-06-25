@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about'
   resources :post_images do
     resource :favorites, only:[:create, :destroy]
+    resources :comments, only:[:create, :destroy]
   end
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
   resources :articles, only: [:index, :show]
 
   # 管理者関係

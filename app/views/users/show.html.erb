@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
+      <% if current_user.id == @user.id %>
         <h1 class="page-title text-right">My page</h1>
+      <% else %>
+        <h1 class="page-title text-right">User page</h1>
+      <%end%>
     </div>
   </div>
   <div class="row">
@@ -30,8 +34,10 @@
                 <% end %>
               </td>
               <td class="align-middle"><%= post_image.title %></td>
+              <% if post_image.user == current_user %>
               <td class="align-middle"><%= link_to 'Edit', edit_post_image_path(post_image) %></td>
               <td class="align-middle"><%= link_to 'Destory', post_image_path(post_image), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+              <% end %>
             </tr>
             <% end %>
           </tbody>
