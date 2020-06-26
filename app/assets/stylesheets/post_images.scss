@@ -15,8 +15,9 @@
 /* index.html */
 
 .post-container {
-  border: solid black 1px;
+  border: solid gray 4px;
   margin-bottom: 30px;
+  background-color: white;
 }
 
 .post-details {
@@ -29,6 +30,20 @@
   }
 }
 
+.side-left{
+  background-image: url("side-visual3.jpg");
+  background-size: cover;
+  background-position: left;
+  opacity: 0.6;
+}
+
+.side-right{
+  background-image: url("side-visual3.jpg");
+  background-size: cover;
+  background-position: right;
+  opacity: 0.6;
+}
+
 /* show.html */
 
 .post_images_container {
@@ -39,6 +54,32 @@
 
 .attachment.post_image.image {
   margin: 20px 0;
+}
+
+.content {
+    position: relative;
+    width: 80%;
+    margin: 2em auto;
+    padding: 0.5em 1em;
+    border: solid 3px #62c1ce;
+}
+.content .content-title {
+    position: absolute;
+    display: inline-block;
+    top: -27px;
+    left: -3px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 17px;
+    background: #62c1ce;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+}
+.content p {
+    margin: 0; 
+    padding: 0;
 }
 
 /* 共通 */

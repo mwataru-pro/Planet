@@ -21,7 +21,9 @@
         <%= attachment_image_tag @user, :profile_image, class: "rounded-circle float-left", size: "100x100" ,fallback: "noimage.png" %>
         <p style="">名前　：　<%= @user.name %></p>
         <p>メールアドレス　：　<%= @user.email %></p>
+        <% if current_user == @user %>
         <%= link_to '更新', edit_user_path(@user.id), class: "btn btn-success" %>
+        <% end %>
       </div>
       <div class="user-postitem" style="margin-top: 40px;">
         <table class="table">
