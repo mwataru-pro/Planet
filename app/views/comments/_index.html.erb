@@ -2,9 +2,11 @@
   <h6>コメント<%= post_image.comments.count %>件</h6>
 </div>
   <div class="more" style="width: 80%; margin: 0 auto;">
+    <% if post_image.comments.count >= 2 %><!-- 比較演算子を用いた表示条件式　/ aがb以上である時のみ表示 -->
     <h6 class="text-muted btn" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       Show more...
     </h6>
+    <% end %>
   </div>
   <!-- コメント２件分の記述 -->
     <% post_image.comments.first(2).each do |post_comment| %>

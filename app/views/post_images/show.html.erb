@@ -19,8 +19,9 @@
       <div class="postimage-title" style="width: 80%; margin: 0 auto;">
         <h2 style="font-weight: bold;"><%= @post_image.title %></h2>
       </div>
-      <div class="postimage-content" style="border: dashed darkgreen 2px; border-radius: 10px; width: 80%; margin: 20px auto;">
-        <p style="font-size: 18px; margin: 0;"><%= simple_format(@post_image.content) %></p>
+      <div class="content">
+        <span class="content-title">Content</span>
+        <p><%= simple_format(@post_image.content) %></p>
       </div>
       <div class="post-users-content" style="margin: 0 auto; width: 80%;">
           <%= attachment_image_tag @post_image.user, :profile_image, class: "rounded-circle", size: "60x60" ,fallback: "noimage.png" %>
@@ -46,9 +47,11 @@
         <div class="text-left" style="width: 49%; display: inline-block;">
           <%= link_to '< Back', post_images_path %>
         </div>
+        <% if current_user == @post_image.user %>
         <div class="text-right" style="width: 49%; display: inline-block;">
           <%= link_to 'Edit >', edit_post_image_path(@post_image) %>
         </div>
+        <% end %>
       </div>
     </div>
     <div class="col-1"></div>

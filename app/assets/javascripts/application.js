@@ -22,27 +22,30 @@
 
 /* 新規投稿プレビュー表示 */
 
-$(function(){
-    // inputのidから情報の取得:検証してinputのidを確認すると分かる
-    $('#post_image_image').on('change', function (e) {
-// ここから既存の画像のurlの取得
-    var reader = new FileReader();
-    reader.onload = function (e) {
-        $(".image").attr('src', e.target.result);
-    }
-// ここまで
-    reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
-});
+$(document).on('turbolinks:load', function() {
+  $(function(){
+      // inputのidから情報の取得:検証してinputのidを確認すると分かる
+      $('#post_image_image').on('change', function (e) {
+  // ここから既存の画像のurlの取得
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          $(".image").attr('src', e.target.result);
+      }
+  // ここまで
+      reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+  });
+  });
 });
 
 /* プロフィール画像プレビュー */
-
-$(function(){
-  $('#user_profile_image').on('change', function (e) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-        $(".profile_image").attr('src', e.target.result);
-    }
-    reader.readAsDataURL(e.target.files[0]);
-});
+$(document).on('turbolinks:load', function() {
+  $(function(){
+    $('#user_profile_image').on('change', function (e) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          $(".profile_image").attr('src', e.target.result);
+      }
+      reader.readAsDataURL(e.target.files[0]);
+  });
+  });
 });
