@@ -13,17 +13,11 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
     <div class="main-visual d-none d-sm-block">
       <div class="images">
         <%= image_tag 'main-visual-blue.jpg' %>
       </div>
     </div>
-  </div>
-</div>
-</div>
 
     <div class="wrapper" style="position: relative;">
       <header id="header" style="z-index: 1;">
@@ -39,7 +33,7 @@
         <nav class="nav">
           <ul class="nav-list">
             <li>
-              <a data-toggle="collapse" href="#menu" role="button" aria-expanded="false" aria-controls="collapseExample">MENU</a>
+              <a data-toggle="collapse" href="#menu" role="button" aria-expanded="false" aria-controls="collapseExample" class="rounded-pill">MENU</a>
             </li>
             <ul class="collapse nav-list" id="menu">
               <!-- 会員がサインインしている時 -->
@@ -51,7 +45,7 @@
               <!-- 管理者がログインしている時 -->
               <% elsif admin_signed_in? %>
                 <li><%= link_to admin_articles_path, class: "rounded-pill" do %><i class="far fa-newspaper"></i> Articles<% end %></li>
-                <li><%= link_to admin_post_images_path, class: "rounded-pill" do %><i class="fab fa-pagelines"></i> Plants<% end %></li>
+                <li><%= link_to admin_users_path, class: "rounded-pill" do %><i class="fab fa-pagelines"></i> Users<% end %></li>
                 <li><%= link_to destroy_admin_session_path, method: :delete, class: "rounded-pill" do %><i class="fas fa-sign-out-alt"></i> Sign out<% end %></li>
               <!-- ログインしていない時 -->
               <% else %>
