@@ -32,7 +32,7 @@
 
 /* メイン */
 .wrapper {
-  padding: 50px 30px 50px 50px;
+  padding: 100px 30px 50px 50px;
   position: relative;
   width: calc(100% - 520px); /* calc() 関数は、 CSSのプロパティ値を指定する際に計算を行うことができるもの */
   left: 520px;
@@ -58,7 +58,7 @@
   text-align: right;
   position: fixed;
   top: 20px;
-  right: 30px;
+  right: 20px;
   z-index: 200;
 }
 
@@ -69,13 +69,13 @@
 .nav ul li {
   margin-bottom: 15px;
   a {
-  font-size: 20px;
+  font-size: 25px;
   color: black;
   font-weight: bold;
   }
   a:hover {
     color: white;
-    background-color: mediumseagreen;
+    background-color: cornflowerblue;
     text-decoration: none;
   }
 }
@@ -84,13 +84,13 @@
 .page-title {
   color: limegreen;
   font-size: 50px;
-  text-align: right;
+  text-align: left;
   letter-spacing: 8px; /* カーニング調整：文字間のスペース */
 }
 
 .page-title-translate {
   color: limegreen;
-  text-align: right;
+  text-align: left;
   letter-spacing: 8px;
 }
 
