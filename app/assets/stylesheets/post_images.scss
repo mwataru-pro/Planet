@@ -1,0 +1,89 @@
+// Place all the styles related to the post_images controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* new.html */
+
+.new-form {
+  margin-top: 50px;
+}
+
+.new-field {
+  margin-top: 30px;
+}
+
+/* index.html */
+
+.post-container {
+  border: solid gray 4px;
+  margin-bottom: 30px;
+  background-color: white;
+}
+
+.post-details {
+  margin: 0;
+  padding: 15px 0 0 15px;
+  list-style: none;
+  display: inline-block;
+  li {
+    display: inline-block;
+  }
+}
+
+.side-left{
+  background-image: url("side-visual3.jpg");
+  background-size: cover;
+  background-position: left;
+  opacity: 0.6;
+}
+
+.side-right{
+  background-image: url("side-visual3.jpg");
+  background-size: cover;
+  background-position: right;
+  opacity: 0.6;
+}
+
+/* show.html */
+
+.post_images_container {
+  width: 100%;
+  border: solid gray 2px;
+  border-radius: 30px 30px 30px 30px;
+}
+
+.attachment.post_image.image {
+  margin: 20px 0;
+}
+
+.content {
+    position: relative;
+    width: 80%;
+    margin: 2em auto;
+    padding: 0.5em 1em;
+    border: solid 3px #62c1ce;
+}
+.content .content-title {
+    position: absolute;
+    display: inline-block;
+    top: -27px;
+    left: -3px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 17px;
+    background: #62c1ce;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+}
+.content p {
+    margin: 0; 
+    padding: 0;
+}
+
+/* 共通 */
+
+.col-12 {
+  padding: 0;
+}

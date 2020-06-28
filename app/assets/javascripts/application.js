@@ -10,7 +10,42 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+//= require jquery3
+//= require jquery_ujs
+//= require popper
+//= require bootstrap
+//= require summernote/summernote-bs4.min
+//= require summernote-init
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+/* 新規投稿プレビュー表示 */
+
+$(document).on('turbolinks:load', function() {
+  $(function(){
+      // inputのidから情報の取得:検証してinputのidを確認すると分かる
+      $('#post_image_image').on('change', function (e) {
+  // ここから既存の画像のurlの取得
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          $(".image").attr('src', e.target.result);
+      }
+  // ここまで
+      reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+  });
+  });
+});
+
+/* プロフィール画像プレビュー */
+$(document).on('turbolinks:load', function() {
+  $(function(){
+    $('#user_profile_image').on('change', function (e) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          $(".profile_image").attr('src', e.target.result);
+      }
+      reader.readAsDataURL(e.target.files[0]);
+  });
+  });
+});

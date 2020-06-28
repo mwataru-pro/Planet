@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col">
+      <div class="fadein">
+        <p class="head">
+          <%= link_to articles_path do %>
+            Articles <span class="head-translation">記事一覧</span>
+          <% end %>
+        </p>
+        <p class="head">
+          <%= link_to admin_users_path do %>
+            Users <span class="head-translation">会員一覧</span>
+          <% end %>
+        </p>
+        <p class="head">
+          <%= link_to destroy_admin_session_path, method: :delete do %>
+            Sign out <span class="head-translation">サインアウト</span>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
