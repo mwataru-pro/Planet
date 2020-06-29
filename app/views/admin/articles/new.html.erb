@@ -1,2 +1,43 @@
-<h1>Admin::Articles#new</h1>
-<p>Find me in app/views/admin/articles/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="page-title">Articles New</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p class="page-title-translate">新規記事投稿</p>
+    </div>
+  </div>
+  <div class="row">
+    <%= form_for @article, url: admin_articles_path do |f| %>
+      <!-- エラーメッセージ文 -->
+      <% if @article.errors.any? %>
+        <%= @article.errors.count %>件のエラーが発生しました
+        <% @article.errors.full_messages.each do |message| %>
+          <%= message %>
+        <% end %>
+      <% end %>
+      <!-- // -->
+
+      <!-- 新規投稿フォーム -->
+      <div class="plants-image">
+        <%= attachment_image_tag @article, :article_image, class: "img-square", fallback: "no-image2.png", size:"250x250" %>
+      </div>
+      <div class="new-field">
+        <%= f.attachment_field :article_image %>
+      </div>
+      <div class="new-field">
+        <%= f.label :タイトル, class: "col-xs-3" %><br>
+        <%= f.text_field :article_title, autofocus: true, autocomplete: "title", class: "col-xs-8", size:'90' %>
+      </div>
+      <div class="new-field">
+        <%= f.label :記事内容, class: "col-xs-3" %><br>
+        <%= f.text_area :article_content, autofocus: true, autocomplete: "content", 'data-provider': :summernote %>
+      </div>
+      <div class="new-field">
+        <%= f.submit "投稿", class: "btn btn-success" %><p style="color: gray; display: inline-block;">　　投稿前に内容をご確認ください</p>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -49,3 +49,20 @@ $(document).on('turbolinks:load', function() {
   });
   });
 });
+
+/* 新規記事投稿プレビュー表示 */
+
+$(document).on('turbolinks:load', function() {
+  $(function(){
+      // inputのidから情報の取得:検証してinputのidを確認すると分かる
+      $('#article_article_image').on('change', function (e) {
+  // ここから既存の画像のurlの取得
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          $(".article_image").attr('src', e.target.result);
+      }
+  // ここまで
+      reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
+  });
+  });
+});
