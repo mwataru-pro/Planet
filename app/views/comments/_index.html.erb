@@ -10,9 +10,9 @@
   </div>
   <!-- コメント２件分の記述 -->
     <% post_image.comments.first(2).each do |post_comment| %>
-      <div class="comment-index clearfix" style="width: 80%; margin: 15px auto; border: solid gray 1px; padding: 10px;">
+      <div class="comment-index clearfix" style="width: 80%; margin: 15px auto; border: solid gray 1px; padding: 10px; background-color: honeydew;">
         <div class="comment-avatar float-left" style="margin: 0 20px 0 0">
-          <%= attachment_image_tag post_comment.user, :profile_image, class: "rounded-circle", size:'50x50',　fallback: "no_image.jpg" %>
+          <%= attachment_image_tag post_comment.user, :profile_image, class: "rounded-circle", size:'50x50', fallback: "no_image.jpg" %>
         </div>
         <div class="comment-text float-left">
           <span><%= post_comment.user.name %></span>
@@ -33,9 +33,9 @@
   <!-- コメント３件目以降の記述 -->
     <div class="collapse" id="collapseExample">
       <% post_image.comments.offset(2).each do |post_comment| %>
-      <div class="comment-index clearfix" style="width: 80%; margin: 15px auto; border: solid gray 1px; padding: 10px;">
+      <div class="comment-index clearfix" style="width: 80%; margin: 15px auto; border: solid gray 1px; padding: 10px; background-color: honeydew;">
         <div class="comment-avatar float-left" style="margin: 0 20px 0 0">
-          <%= attachment_image_tag post_comment.user, :profile_image, class: "rounded-circle", size:'50x50',　fallback: "no_image.jpg" %>
+          <%= attachment_image_tag post_comment.user, :profile_image, class: "rounded-circle", size:'50x50', fallback: "no_image.jpg" %>
         </div>
         <div class="comment-text float-left">
           <span><%= post_comment.user.name %></span>

@@ -1,4 +1,6 @@
 class Admin::ArticlesController < ApplicationController
+  before_action :authenticate_user! # 「ログイン認証されていなければ、ログイン画面へリダイレクトする」機能を実装
+
   def new
     @article = Article.new
   end
@@ -10,8 +12,11 @@ class Admin::ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.admin_id = current_admin.id
-    @article.save
-    redirect_to admin_articles_path
+    if @article.save
+    redirect_to admin_articles_path, notice: "記事が作成されました"
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -24,11 +29,20 @@ class Admin::ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.update(article_params)
-    redirect_to admin_article_path(@article)
+    if @article.update(article_params)
+    redirect_to admin_article_path(@article), notice: "記事が更新されました"
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @article = Article.find(params[:id])
+    if @article.destroy
+    redirect_to admin_articles_path, notice: "記事が削除されました"
+    else
+      render 'edit'
+    end
   end
 
   private

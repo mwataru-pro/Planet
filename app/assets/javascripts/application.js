@@ -66,3 +66,7 @@ $(document).on('turbolinks:load', function() {
   });
   });
 });
+
+$(function(){
+  setTimeout("$('#notice').fadeOut('slow')", 5000);
+});

@@ -33,7 +33,7 @@
       </div>
       <div class="new-field">
         <%= f.label :記事内容, class: "col-xs-3" %><br>
-        <%= f.text_area :article_content, autofocus: true, autocomplete: "content", 'data-provider': :summernote %>
+        <%= f.text_area :article_content, autofocus: true, autocomplete: "content", 'data-provider': :summernote, id: "summernote" %>
       </div>
       <div class="new-field">
         <%= f.submit "投稿", class: "btn btn-success" %><p style="color: gray; display: inline-block;">　　投稿前に内容をご確認ください</p>
@@ -41,3 +41,26 @@
     <% end %>
   </div>
 </div>
+
+<!-- summernoteのツールバー設定 -->
+<script>
+  $('#summernote').summernote({
+  height: 300,
+  fontNames: ["YuGothic","Yu Gothic","Hiragino Kaku Gothic Pro","Meiryo","sans-serif", "Arial","Arial Black","Comic Sans MS","Courier New","Helvetica Neue","Helvetica","Impact","Lucida Grande","Tahoma","Times New Roman","Verdana"],
+  lang: "ja-JP",
+  toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+    // ['font', ['strikethrough', 'superscript']],
+    ['fontname',['fontname']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['height', ['height']],
+    ['table', ['table']],
+    ['insert', ['link', 'picture']],
+    ['view', ['fullscreen', 'codeview']],
+    ['help', ['help']]
+  ],
+});
+</script>
