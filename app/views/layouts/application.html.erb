@@ -26,7 +26,7 @@
           <div class="btn-container">
             <%= link_to new_post_image_path, class: "btn1" do %>
               <span class="nomal"><i class="fas fa-seedling"></i></span>
-              <span class="hover">投稿</i></span>
+              <span class="hover">投稿</i></span> <!-- ホバー時のみ表示。それまではdisplay: none; -->
             <% end %>
           </div>
         <% end %>
@@ -45,6 +45,7 @@
               <!-- 管理者がログインしている時 -->
               <% elsif admin_signed_in? %>
                 <li><%= link_to admin_articles_path, class: "rounded-pill" do %><i class="far fa-newspaper"></i> Articles<% end %></li>
+                <li><%= link_to new_admin_article_path, class: "rounded-pill" do %><i class="far fa-newspaper"></i> New＋<% end %></li>
                 <li><%= link_to admin_users_path, class: "rounded-pill" do %><i class="fab fa-pagelines"></i> Users<% end %></li>
                 <li><%= link_to destroy_admin_session_path, method: :delete, class: "rounded-pill" do %><i class="fas fa-sign-out-alt"></i> Sign out<% end %></li>
               <!-- ログインしていない時 -->
@@ -59,6 +60,7 @@
           </ul>
         </nav>
       </header><!-- /header -->
+      <p id="notice"><%= notice %></p>
       <%= yield %>
     </div>
   </body>
