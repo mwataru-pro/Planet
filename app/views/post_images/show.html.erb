@@ -16,14 +16,14 @@
       <div class="text-center">
         <%= attachment_image_tag @post_image, :image , width: "80%", height: "80%" %>
       </div>
-      <div class="postimage-title" style="width: 80%; margin: 0 auto;">
-        <h2 style="font-weight: bold;"><%= @post_image.title %></h2>
+      <div class="postimage-title">
+        <h2><%= @post_image.title %></h2>
       </div>
       <div class="content">
         <span class="content-title">Content</span>
         <p><%= simple_format(@post_image.content) %></p>
       </div>
-      <div class="post-users-content" style="margin: 0 auto; width: 80%;">
+      <div class="post-users-content">
           <%= attachment_image_tag @post_image.user, :profile_image, class: "rounded-circle", size: "60x60" ,fallback: "noimage.png" %>
           <ul class="post-details">
             <li>By <%= @post_image.user.name %>　</li>
@@ -43,12 +43,12 @@
         <%= render 'comments/form', comment: @comment, post_image: @post_image %>
       <% end %>
       <!-- 遷移リンクボタン -->
-      <div class="link-btn" style="width: 80%; margin: 40px auto 20px;">
-        <div class="text-left" style="width: 49%; display: inline-block;">
+      <div class="link-btn">
+        <div class="text-left link-left">
           <%= link_to '< Back', post_images_path %>
         </div>
         <% if current_user == @post_image.user %>
-        <div class="text-right" style="width: 49%; display: inline-block;">
+        <div class="text-right link-right">
           <%= link_to 'Edit >', edit_post_image_path(@post_image) %>
         </div>
         <% end %>

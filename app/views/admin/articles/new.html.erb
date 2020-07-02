@@ -36,7 +36,7 @@
         <%= f.text_area :article_content, autofocus: true, autocomplete: "content", 'data-provider': :summernote, id: "summernote" %>
       </div>
       <div class="new-field">
-        <%= f.submit "投稿", class: "btn btn-success" %><p style="color: gray; display: inline-block;">　　投稿前に内容をご確認ください</p>
+        <%= f.submit "投稿", class: "btn btn-success" %><p class="confirm-text">　　投稿前に内容をご確認ください</p>
       </div>
     <% end %>
   </div>
