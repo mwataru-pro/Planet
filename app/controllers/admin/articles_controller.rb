@@ -1,5 +1,5 @@
 class Admin::ArticlesController < ApplicationController
-  before_action :authenticate_user! # 「ログイン認証されていなければ、ログイン画面へリダイレクトする」機能を実装
+  before_action :authenticate_admin! # 「ログイン認証されていなければ、ログイン画面へリダイレクトする」機能を実装
 
   def new
     @article = Article.new

@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-12">
       <% if current_user.id == @user.id %>
-        <h1 class="page-title text-right">My page</h1>
+        <h1 class="page-title">My page</h1>
       <% else %>
-        <h1 class="page-title text-right">User page</h1>
+        <h1 class="page-title">User page</h1>
       <%end%>
     </div>
   </div>
@@ -16,8 +16,8 @@
   <div class="row">
     <div class="col-1"></div>
     <!-- ユーザー詳細 -->
-    <div class="col-10 users-container mt-5" style="width: 100%;">
-      <div class="user-profile" style="border: solid black 2px;">
+    <div class="col-10 users-container mt-5">
+      <div class="user-profile">
         <%= attachment_image_tag @user, :profile_image, class: "rounded-circle float-left", size: "100x100" ,fallback: "noimage.png" %>
         <p style="">名前　：　<%= @user.name %></p>
         <p>メールアドレス　：　<%= @user.email %></p>
@@ -25,7 +25,7 @@
         <%= link_to '更新', edit_user_path(@user.id), class: "btn btn-success" %>
         <% end %>
       </div>
-      <div class="user-postitem" style="margin-top: 40px;">
+      <div class="user-postitem">
         <table class="table">
           <tbody>
             <% @post_images.each do |post_image| %>
