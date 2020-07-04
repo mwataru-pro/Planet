@@ -13,7 +13,7 @@
     <% @post_images.each do |post_image| %>
       <div class="col-3 side-left"></div>
       <div class="col-8 post-container">
-        <div class="text-center">
+        <div class="plants-image text-center">
           <%= link_to post_image_path(post_image.id) do%>
             <%= attachment_image_tag post_image, :image, width: "100%", height: "100%", fallcack: "no-image2.png" %>
           <% end %>

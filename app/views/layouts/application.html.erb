@@ -13,6 +13,7 @@
   </head>
 
   <body>
+    <!-- メインビジュアル -->
     <%= render "layouts/anime" %>
 
     <div class="wrapper" style="position: relative;">
@@ -61,6 +62,7 @@
       <% if flash[:notice] %>
         <p id="notice"><%= notice %></p>
       <% end %>
+      <%= alert %>
       <%= yield %>
     </div>
   </body>

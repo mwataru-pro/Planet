@@ -71,19 +71,26 @@ $(function(){
   setTimeout("$('#notice').fadeOut('slow')", 5000);
 });
 
+/* メインビジュアル・アニメーション */
+
 $(document).on('turbolinks:load', function() {
+/*アニメーション用imgタグを全て取得*/
 var frames = document.getElementsByClassName('anime')[0].getElementsByTagName('img');
-  viewFrame(150);
+/*アニメーション表示用の関数を呼び出す(引数はスライドの切り替え時間)*/
+viewFrame(150);
 
   function viewFrame(msec, frame_no = -1)
   {
+    /*現在のimgを消す*/
     if (frames[frame_no]) {
       frames[frame_no].style.display = 'none';
     }
+    /*画像番号をカウントアップ*/
     frame_no++;
     if (frames[frame_no]) {
       frames[frame_no].style.display = 'block';
     } else {
+      /*次の画像がなければ最初の画像を表示*/
       frames[0].style.display = 'block';
       frame_no = 0;
     }
