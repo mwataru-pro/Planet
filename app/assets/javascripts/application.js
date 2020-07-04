@@ -70,3 +70,23 @@ $(document).on('turbolinks:load', function() {
 $(function(){
   setTimeout("$('#notice').fadeOut('slow')", 5000);
 });
+
+$(document).on('turbolinks:load', function() {
+var frames = document.getElementsByClassName('anime')[0].getElementsByTagName('img');
+  viewFrame(150);
+
+  function viewFrame(msec, frame_no = -1)
+  {
+    if (frames[frame_no]) {
+      frames[frame_no].style.display = 'none';
+    }
+    frame_no++;
+    if (frames[frame_no]) {
+      frames[frame_no].style.display = 'block';
+    } else {
+      frames[0].style.display = 'block';
+      frame_no = 0;
+    }
+    setTimeout(function(){viewFrame(msec, frame_no);}, msec);
+    }
+});
