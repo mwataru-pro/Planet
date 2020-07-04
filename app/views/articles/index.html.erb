@@ -7,6 +7,10 @@
   <div class="row">
     <div class="col-12">
       <p class="page-title-translate">記事一覧</p>
+      <%= form_tag(articles_path, :method => "get") do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag "Search" ,:article_title => nil ,class: "btn btn-success btn-xs"%>
+      <% end %>
     </div>
   </div>
   <div class="row">
