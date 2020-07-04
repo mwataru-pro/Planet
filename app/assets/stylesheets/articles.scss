@@ -1,3 +1,72 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* index.html */
+
+.article-box {
+  border: solid silver 2px;
+  margin: 30px 0;
+  padding: 20px;
+}
+
+.article-side-visual-left {
+  margin:  30px 0;
+  padding: 0;
+  background-image: url("side-visual3.jpg");
+  background-size: cover;
+  background-position: left;
+  opacity: 0.6;
+}
+
+.article-side-visual-right {
+  margin:  30px 0;
+  padding: 0;
+  background-image: url("side-visual3.jpg");
+  background-size: cover;
+  background-position: right;
+  opacity: 0.5;
+}
+
+.article-title {
+  margin: 10px 10px 10px 0;
+}
+
+/* show.html */
+
+.article-container {
+  border: solid lightgray 2px;
+  border-radius: 20px;
+  margin: 30px 0;
+  padding: 20px;
+}
+
+.show-title {
+  padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+  color: darkslategray;/*文字色*/
+  background: #f0f6da;/*背景色*/
+  border-left: solid 5px limegreen;/*左線*/
+  border-bottom: solid 3px #d7d7d7;/*下線*/
+}
+
+.article-title a:hover {
+  text-decoration: none;
+}
+
+.article-image {
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.article-content {
+  padding: 10px;
+}
+
+#article-created-at {
+  padding-right: 10px;
+  text-align: right;
+}
+
+.index-title {
+  border-bottom: solid 2px yellowgreen;
+}
