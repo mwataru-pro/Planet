@@ -101,18 +101,29 @@ viewFrame(150);
 
 /* 崩壊アニメーション */
 
+// $(document).on('turbolinks:load', function() {
+// $(".button").click(function () {
+//   // 1つ目に追加
+//   $(".collapse1").addClass("animate__animated animate__backOutUp");
+//   // 2つ目に追加（1秒後）
+//   setTimeout(function () {
+//     $(".collapse2").addClass("animate__animated animate__hinge");
+//     $(".collapse3").addClass("animate__animated animate__hinge");
+//   }, 1000);
+//   setTimeout(function () {
+//     $(".collapse4").addClass("animate__animated animate__hinge");
+//     $(".collapse5").addClass("animate__animated animate__hinge");
+//   }, 1400);
+// });
+// });
+
+/* topアニメーション */
+
+
 $(document).on('turbolinks:load', function() {
-$(".button").click(function () {
-  // 1つ目に追加
-  $(".collapse1").addClass("animate__animated animate__backOutUp");
-  // 2つ目に追加（1秒後）
-  setTimeout(function () {
-    $(".collapse2").addClass("animate__animated animate__hinge");
-    $(".collapse3").addClass("animate__animated animate__hinge");
-  }, 1000);
-  setTimeout(function () {
-    $(".collapse4").addClass("animate__animated animate__hinge");
-    $(".collapse5").addClass("animate__animated animate__hinge");
-  }, 1400);
+$(function () {
+  setTimeout(function (){
+    $(".head").addClass("animate__animated animate__swing");
+  },800);
 });
 });
