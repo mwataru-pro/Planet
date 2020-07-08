@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/b590762531.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400"/>
     <%= favicon_link_tag('favicon.ico') %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
   </head>
 
   <body>
@@ -41,6 +42,7 @@
                 <li><%= link_to articles_path, class: "rounded-pill" do %><i class="far fa-newspaper"></i> Articles<% end %></li>
                 <li><%= link_to post_images_path, class: "rounded-pill" do %><i class="fab fa-pagelines"></i> Plants<% end %></li>
                 <li><%= link_to destroy_user_session_path, method: :delete, class: "rounded-pill" do %><i class="fas fa-sign-out-alt"></i> Sign out<% end %></li>
+                <!-- <div class="button collapse1" style="color: white;">クリック</div> -->
               <!-- 管理者がログインしている時 -->
               <% elsif admin_signed_in? %>
                 <li><%= link_to admin_articles_path, class: "rounded-pill" do %><i class="far fa-newspaper"></i> Articles<% end %></li>
