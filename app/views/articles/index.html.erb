@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1 class="page-title">Articles</h1>
+      <h1 class="page-title animate__animated animate__rotateInUpLeft">Articles</h1>
     </div>
   </div>
   <div class="row">
-    <div class="col-12">
+    <div class="col-12 animate__animated animate__rotateInUpRight">
       <p class="page-title-translate">記事一覧</p>
       <%= form_tag(articles_path, :method => "get") do %>
         <%= text_field_tag :search %>
@@ -13,7 +13,7 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
+  <div class="row animate__animated animate__rotateInUpLeft">
     <% @articles.each do |article| %>
       <div class="col-1 article-side-visual-left"></div>
       <div class="col-10 article-box">
