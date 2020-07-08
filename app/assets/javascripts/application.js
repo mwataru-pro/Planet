@@ -19,6 +19,7 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require infinite-scroll.pkgd.min
 
 /* 新規投稿プレビュー表示 */
 
@@ -96,4 +97,22 @@ viewFrame(150);
     }
     setTimeout(function(){viewFrame(msec, frame_no);}, msec);
     }
+});
+
+/* 崩壊アニメーション */
+
+$(document).on('turbolinks:load', function() {
+$(".button").click(function () {
+  // 1つ目に追加
+  $(".collapse1").addClass("animate__animated animate__backOutUp");
+  // 2つ目に追加（1秒後）
+  setTimeout(function () {
+    $(".collapse2").addClass("animate__animated animate__hinge");
+    $(".collapse3").addClass("animate__animated animate__hinge");
+  }, 1000);
+  setTimeout(function () {
+    $(".collapse4").addClass("animate__animated animate__hinge");
+    $(".collapse5").addClass("animate__animated animate__hinge");
+  }, 1400);
+});
 });
