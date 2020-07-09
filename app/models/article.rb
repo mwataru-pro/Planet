@@ -9,4 +9,8 @@ class Article < ApplicationRecord
       all #全て表示させる
     end
   end
+
+  validates :article_title, presence: :true
+  validates :article_image, presence: :true
+  validates :article_content, presence: :true
 end

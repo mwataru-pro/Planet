@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# 会員情報
 100.times do |n|
   name = Faker::Name.name
   email = Faker::Internet.email
@@ -117,5 +118,29 @@ PostImage.create!(
     content: "Test投稿",
     image: open("./db/images/sample16.jpg")
   }
+ ]
+)
+
+# 管理者アカウント
+Admin.create!(
+  email: "admin@admin.com",
+  password: "admins",
+  password_confirmation: "admins")
+
+# 記事データ
+Article.create!(
+ [
+  {
+    admin_id: 1,
+    article_title: "Test記事",
+    article_content: "<h3>Test記事です</h3>",
+    article_image: open("./db/images/demo1.jpg")
+  },
+  {
+    admin_id: 1,
+    article_title: "Test記事2",
+    article_content: "<h3>Test記事です</h3>",
+    article_image: open("./db/images/demo2.jpg")
+  },
  ]
 )
