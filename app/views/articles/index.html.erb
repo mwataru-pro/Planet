@@ -8,7 +8,7 @@
     <div class="col-12 animate__animated animate__rotateInUpRight">
       <p class="page-title-translate">記事一覧</p>
       <%= form_tag(articles_path, :method => "get") do %>
-        <%= text_field_tag :search %>
+        <%= text_field_tag :search, '', placeholder: "タイトル検索" %>
         <%= submit_tag "Search" ,:article_title => nil ,class: "btn btn-success btn-xs"%>
       <% end %>
     </div>
