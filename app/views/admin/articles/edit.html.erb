@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="page-title">Articles Edit</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p class="page-title-translate">記事編集</p>
+    </div>
+  </div>
+  <div class="row">
+    <%= form_for @article, url: {action: "update"} do |f| %>
+      <!-- エラーメッセージ文 -->
+      <% if @article.errors.any? %>
+        <%= @article.errors.count %>件のエラーが発生しました
+        <% @article.errors.full_messages.each do |message| %>
+          <%= message %>
+        <% end %>
+      <% end %>
+      <!-- // -->
+
+      <!-- 新規投稿フォーム -->
+      <div class="plants-image">
+        <%= attachment_image_tag @article, :article_image, class: "img-square", fallback: "no-image2.png", size:"250x250" %>
+      </div>
+      <div class="new-field">
+        <%= f.attachment_field :article_image %>
+      </div>
+      <div class="new-field">
+        <%= f.label :タイトル, class: "col-xs-3" %><br>
+        <%= f.text_field :article_title, autofocus: true, autocomplete: "title", class: "col-xs-8", size:'90' %>
+      </div>
+      <div class="new-field">
+        <%= f.label :記事内容, class: "col-xs-3" %><br>
+        <%= f.text_area :article_content, autofocus: true, autocomplete: "content", 'data-provider': :summernote, id: "summernote" %>
+      </div>
+      <div class="new-field">
+        <%= f.submit "更新", class: "btn btn-success" %><p class="confirm-text">　　更新前に内容をご確認ください</p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- summernoteのツールバー設定 -->
+<script>
+  $('#summernote').summernote({
+  height: 300,
+  fontNames: ["YuGothic","Yu Gothic","Hiragino Kaku Gothic Pro","Meiryo","sans-serif", "Arial","Arial Black","Comic Sans MS","Courier New","Helvetica Neue","Helvetica","Impact","Lucida Grande","Tahoma","Times New Roman","Verdana"],
+  lang: "ja-JP",
+  placeholder: '投稿内容をこちらに入力してください',
+  fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '32', '34' , '36', '38', '40'],
+  toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['style']],
+    ['font', ['bold', 'underline', 'clear']],
+    // ['font', ['strikethrough', 'superscript']],
+    ['fontname',['fontname']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['height', ['height']],
+    ['table', ['table']],
+    ['insert', ['link', 'picture']],
+    ['view', ['fullscreen', 'codeview']],
+    ['help', ['help']]
+  ],
+});
+</script>

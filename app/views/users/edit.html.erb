@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container animate__animated animate__fadeIn">
   <div class="row">
     <div class="col-12">
-        <h1 class="page-title text-right">Edit My page</h1>
+        <h1 class="page-title">Edit My page</h1>
     </div>
   </div>
   <div class="row">
@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-1"></div>
     <!-- ユーザー詳細 -->
-    <div class="col-10 users-container mt-5" style="width: 100%;">
+    <div class="col-10 users-container mt-5">
       <%= form_for @user do |f|%>
         <!-- エラーメッセージ文 -->
         <% if @user.errors.any? %>
@@ -42,7 +42,7 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-xs-8", size:'50' %>
         </div>
         <div class="new-field">
-          <%= f.submit "更新", class: "btn btn-success" %><p style="color: gray; display: inline-block;">　　更新前に内容をご確認ください</p>
+          <%= f.submit "更新", class: "btn btn-success" %><p class="confirm-text">　　更新前に内容をご確認ください</p>
         </div>
         <!-- /編集フォーム -->
       <% end %>

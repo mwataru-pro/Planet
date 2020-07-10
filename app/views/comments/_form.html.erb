@@ -1,4 +1,4 @@
-<div class="comment-form" style="width: 80%; margin: 30px auto;">
+<div class="comment-form">
   <%= form_with(model: [post_image, comment] ) do |f| %>
     <%= f.text_area :comment, rows:"3", class: "form-control", placeholder: "コメントはここから" %><br>
     <%= f.submit "コメントする", class: "btn btn-success" %>

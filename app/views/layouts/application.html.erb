@@ -10,14 +10,12 @@
     <script src="https://kit.fontawesome.com/b590762531.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//brick.a.ssl.fastly.net/Roboto:400"/>
     <%= favicon_link_tag('favicon.ico') %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
   </head>
 
   <body>
-    <div class="main-visual d-none d-sm-block">
-      <div class="images">
-        <%= image_tag 'main-visual-blue.jpg' %>
-      </div>
-    </div>
+    <!-- メインビジュアル -->
+    <%= render "layouts/anime" %>
 
     <div class="wrapper" style="position: relative;">
       <header id="header" style="z-index: 1;">
@@ -26,14 +24,16 @@
           <div class="btn-container">
             <%= link_to new_post_image_path, class: "btn1" do %>
               <span class="nomal"><i class="fas fa-seedling"></i></span>
-              <span class="hover">投稿</i></span>
+              <span class="hover">投稿</i></span> <!-- ホバー時のみ表示。それまではdisplay: none; -->
             <% end %>
           </div>
         <% end %>
         <nav class="nav">
           <ul class="nav-list">
             <li>
-              <a data-toggle="collapse" href="#menu" role="button" aria-expanded="false" aria-controls="collapseExample" class="rounded-pill">MENU</a>
+              <a data-toggle="collapse" href="#menu" role="button" aria-expanded="false" aria-controls="collapseExample" class="rounded-pill">
+                MENU
+              </a>
             </li>
             <ul class="collapse nav-list" id="menu">
               <!-- 会員がサインインしている時 -->
@@ -42,9 +42,11 @@
                 <li><%= link_to articles_path, class: "rounded-pill" do %><i class="far fa-newspaper"></i> Articles<% end %></li>
                 <li><%= link_to post_images_path, class: "rounded-pill" do %><i class="fab fa-pagelines"></i> Plants<% end %></li>
                 <li><%= link_to destroy_user_session_path, method: :delete, class: "rounded-pill" do %><i class="fas fa-sign-out-alt"></i> Sign out<% end %></li>
+                <!-- <div class="button collapse1" style="color: white;">クリック</div> -->
               <!-- 管理者がログインしている時 -->
               <% elsif admin_signed_in? %>
                 <li><%= link_to admin_articles_path, class: "rounded-pill" do %><i class="far fa-newspaper"></i> Articles<% end %></li>
+                <li><%= link_to new_admin_article_path, class: "rounded-pill" do %><i class="far fa-newspaper"></i> New＋<% end %></li>
                 <li><%= link_to admin_users_path, class: "rounded-pill" do %><i class="fab fa-pagelines"></i> Users<% end %></li>
                 <li><%= link_to destroy_admin_session_path, method: :delete, class: "rounded-pill" do %><i class="fas fa-sign-out-alt"></i> Sign out<% end %></li>
               <!-- ログインしていない時 -->
@@ -59,6 +61,10 @@
           </ul>
         </nav>
       </header><!-- /header -->
+      <% if flash[:notice] %>
+        <p id="notice"><%= notice %></p>
+      <% end %>
+      <%= alert %>
       <%= yield %>
     </div>
   </body>

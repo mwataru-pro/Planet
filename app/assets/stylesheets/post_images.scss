@@ -17,7 +17,25 @@
 .post-container {
   border: solid gray 4px;
   margin-bottom: 30px;
+  padding-bottom: 10px;
   background-color: white;
+}
+
+.plants-image {
+  padding: 20px 0;
+  overflow: hidden; /*内容がボックスに収まらない場合、収まらない部分は非表示となる。*/
+  img {
+    transition: all 0.5s; /*トランジションの効果を適用できる全てのプロパティを指定:トランジションの実行にかかる所要時間*/
+    &:hover {
+      transform: scale(1.1, 1.1); /*縮尺の設定：縮尺比率1.1倍*/
+    }
+  }
+}
+
+#post-title {
+  display: inline;
+  font-size: 18px;
+  margin-left: 10px;
 }
 
 .post-details {
@@ -52,6 +70,14 @@
   border-radius: 30px 30px 30px 30px;
 }
 
+.postimage-title {
+  width: 80%;
+  margin: 0 auto;
+  h2 {
+    font-weight: bold;
+  }
+}
+
 .attachment.post_image.image {
   margin: 20px 0;
 }
@@ -78,8 +104,23 @@
     border-radius: 5px 5px 0 0;
 }
 .content p {
-    margin: 0; 
+    margin: 0;
     padding: 0;
+}
+
+.post-users-content {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.link-btn {
+  width: 80%;
+  margin: 40px auto 20px;
+}
+
+.link-left, .link-right {
+  width: 49%;
+  display: inline-block;
 }
 
 /* 共通 */

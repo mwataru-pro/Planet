@@ -1,34 +1,43 @@
-<h1 class="page-title">Plants New</h1>
-<p class="page-title-translate">写真投稿</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="page-title animate__animated animate__jackInTheBox">Plants New</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p class="page-title-translate animate__animated animate__jackInTheBox">写真投稿</p>
+    </div>
+  </div>
+  <div class="row animate__animated animate__rotateInDownRight">
+    <%= form_for @post_image do |f|%>
+      <!-- エラーメッセージ文 -->
+      <% if @post_image.errors.any? %>
+            <%= @post_image.errors.count %>件のエラーが発生しました
+            <% @post_image.errors.full_messages.each do |message| %>
+                <%= message %>
+            <% end %>
+        <% end %>
+      <!-- // -->
 
-<div class="new-form">
-  <%= form_for @post_image do |f|%>
-    <!-- エラーメッセージ文 -->
-    <% if @post_image.errors.any? %>
-          <%= @post_image.errors.count %>件のエラーが発生しました
-          <% @post_image.errors.full_messages.each do |message| %>
-              <%= message %>
-          <% end %>
-      <% end %>
-    <!-- // -->
-
-    <!-- 新規投稿フォーム -->
-    <div class="plants-image">
-      <%= attachment_image_tag @post_image, :image, class: "img-square", fallback: "no-image2.png", size:"200x200" %>
-    </div>
-    <div class="new-field">
-      <%= f.attachment_field :image %>
-    </div>
-    <div class="new-field">
-      <%= f.label :タイトル, class: "col-xs-3" %><br>
-      <%= f.text_field :title, autofocus: true, autocomplete: "title", class: "col-xs-8", size:'40' %>
-    </div>
-    <div class="new-field">
-      <%= f.label :投稿内容, class: "col-xs-3" %><br>
-      <%= f.text_area :content, autofocus: true, autocomplete: "content", class: "col-xs-8", size:'65x10' %>
-    </div>
-    <div class="new-field">
-      <%= f.submit "投稿", class: "btn btn-success" %><p style="color: gray; display: inline-block;">　　投稿前に内容をご確認ください</p>
-    </div>
-  <% end %>
+      <!-- 新規投稿フォーム -->
+      <div class="plants-image">
+        <%= attachment_image_tag @post_image, :image, class: "img-square", fallback: "no-image2.png", size:"200x200" %>
+      </div>
+      <div class="new-field">
+        <%= f.attachment_field :image %>
+      </div>
+      <div class="new-field">
+        <%= f.label :タイトル, class: "col-xs-3" %><br>
+        <%= f.text_field :title, autofocus: true, autocomplete: "title", class: "col-xs-8", size:'40' %>
+      </div>
+      <div class="new-field">
+        <%= f.label :投稿内容, class: "col-xs-3" %><br>
+        <%= f.text_area :content, autofocus: true, autocomplete: "content", class: "col-xs-8", size:'65x10' %>
+      </div>
+      <div class="new-field">
+        <%= f.submit "投稿", class: "btn btn-success" %><p class="confirm-text">　　投稿前に内容をご確認ください</p>
+      </div>
+    <% end %>
+  </div>
 </div>

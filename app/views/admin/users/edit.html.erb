@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="page-title">Edit User</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p class="page-title-translate">会員情報編集</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <!-- ユーザー詳細 -->
+    <div class="col-10 users-container mt-5" style="width: 100%;">
+      <%= form_for @user do |f|%>
+        <!-- エラーメッセージ文 -->
+        <% if @user.errors.any? %>
+              <%= @user.errors.count %>件のエラーが発生しました
+              <% @user.errors.full_messages.each do |message| %>
+                  <%= message %>
+              <% end %>
+          <% end %>
+        <!-- // -->
+
+        <!-- 編集フォーム -->
+        <div>
+          <%= f.label :プロフィール画像, class: "col-xs-3" %>
+        </div>
+        <div>
+          <%= attachment_image_tag @user, :profile_image, class: "raouded-circle", fallback: "noimage.png", size:"200x200" %>
+        </div>
+        <div class="new-field">
+          <%= f.attachment_field :profile_image %>
+        </div>
+        <div class="new-field">
+          <%= f.label :名前, class: "col-xs-3" %><br>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "col-xs-8", size:'50' %>
+        </div>
+        <div class="new-field">
+          <%= f.label :メールアドレス, class: "col-xs-3" %><br>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-xs-8", size:'50' %>
+        </div>
+        <div class="new-field">
+          <%= f.submit "更新", class: "btn btn-success" %><p class="confirm-text">　　更新前に内容をご確認ください</p>
+        </div>
+        <!-- /編集フォーム -->
+      <% end %>
+    </div>
+    <!-- /ユーザー詳細 -->
+    <div class="col-1"></div>
+  </div>
+</div>
