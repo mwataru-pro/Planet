@@ -13,7 +13,7 @@
 .article-side-visual-left {
   margin:  30px 0;
   padding: 0;
-  background-image: url("side-visual3.jpg");
+  background-image: image-url("side-visual3.jpg");
   background-size: cover;
   background-position: left;
   opacity: 0.6;
@@ -22,7 +22,7 @@
 .article-side-visual-right {
   margin:  30px 0;
   padding: 0;
-  background-image: url("side-visual3.jpg");
+  background-image: image-url("side-visual3.jpg");
   background-size: cover;
   background-position: right;
   opacity: 0.5;
@@ -71,7 +71,7 @@
 }
 
 .show-side {
-  background-image: url("side-visual.jpg");
+  background-image: image-url("side-visual.jpg");
   background-size: cover;
   background-position: left;
   opacity: 0.6;
