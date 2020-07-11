@@ -71,6 +71,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 
+gem 'rails-i18n'
+
 gem 'devise'
 gem 'kaminari'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
