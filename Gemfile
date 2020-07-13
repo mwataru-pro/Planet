@@ -85,6 +85,4 @@ gem 'summernote-rails', '~> 0.8.10.0'
 gem 'simple_form'
 
 gem 'dotenv-rails'
-group :production do
-  gem 'mysql2'
-end
+gem 'mysql2'
