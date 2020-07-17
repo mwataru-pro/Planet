@@ -22,7 +22,7 @@
         <h5>名前　：　<%= @user.name %></h5>
         <h5>メールアドレス　：　<%= @user.email %></h5>
         <% if current_user == @user %>
-        <%= link_to '会員情報編集', edit_user_path(@user.id), class: "btn btn-success float-right" %>
+          <%= link_to '会員情報編集', edit_user_path(@user.id), class: "btn btn-success float-right" %>
         <% end %>
       </div>
       <div class="user-postitem">
