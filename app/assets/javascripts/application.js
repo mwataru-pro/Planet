@@ -21,6 +21,7 @@
 //= require_tree .
 //= require infinite-scroll.pkgd.min
 
+
 /* 新規投稿プレビュー表示 */
 
 $(document).on('turbolinks:load', function() {
