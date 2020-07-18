@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :user_restrict, only:[:edit]
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(15)
   end
 
   def show
