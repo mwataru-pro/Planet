@@ -27,9 +27,7 @@
             <%= attachment_image_tag user, :profile_image, size:'50x50', class: "rounded-circle float-left", size:"50x50" ,fallback:"noimage.png" %>
           </td>
           <td class="align-middle"><%= user.name %></td>
-          <td class="align-middle"><%= link_to '詳細', admin_user_path(user) %></td>
-          <td class="align-middle"><%= link_to '編集', edit_admin_user_path(user) %></td>
-          <td class="align-middle"><%= link_to '退会', admin_user_path(user), method: :delete, "data-confirm" => "こちらのアカウントを削除しますか？" %></td>
+          <td class="align-middle"><%= link_to '詳細', user_path(user) %></td>
         </tr>
         <% end %>
       </tbody>

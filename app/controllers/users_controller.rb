@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :user_restrict, only:[:edit]
+  before_action :user_restrict, only:[:edit, :destroy]
 
   def index
     @users = User.all.page(params[:page]).per(15)
