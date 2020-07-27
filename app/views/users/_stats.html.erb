@@ -1,0 +1,7 @@
+<% @user ||= current_user %>
+  <h5>
+    フォロー　：　<%= @user.following.count %>
+  </h5>
+  <h5>
+    フォロワー　：　<%= @user.followers.count %>
+  </h5>

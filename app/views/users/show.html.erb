@@ -21,8 +21,19 @@
         <%= attachment_image_tag @user, :profile_image, class: "rounded-circle float-left", size: "100x100" ,fallback: "noimage.png" %>
         <h5>名前　：　<%= @user.name %></h5>
         <h5>メールアドレス　：　<%= @user.email %></h5>
+        <%= render 'users/stats' %>
         <% if current_user == @user %>
           <%= link_to '会員情報編集', edit_user_path(@user.id), class: "btn btn-success float-right" %>
+        <% end %>
+        <!-- フォロー機能 -->
+        <% unless current_user == @user %>
+          <div id="follow_form">
+          <% if current_user.following?(@user) %>
+            <%= render 'relationships/unfollow' %>
+          <% else %>
+            <%= render 'relationships/follow' %>
+          <% end %>
+          </div>
         <% end %>
       </div>
       <div class="user-postitem">
