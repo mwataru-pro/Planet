@@ -26,15 +26,7 @@
           <%= link_to '会員情報編集', edit_user_path(@user.id), class: "btn btn-success float-right" %>
         <% end %>
         <!-- フォロー機能 -->
-        <% unless current_user == @user %>
-          <div id="follow_form">
-          <% if current_user.following?(@user) %>
-            <%= render 'relationships/unfollow' %>
-          <% else %>
-            <%= render 'relationships/follow' %>
-          <% end %>
-          </div>
-        <% end %>
+        <%= render 'relationships/follow_form' %>
       </div>
       <div class="user-postitem">
         <table class="table table-hover">
