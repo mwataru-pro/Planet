@@ -1,0 +1,42 @@
+<div class="container animate__animated animate__swing">
+  <div class="row">
+    <div class="col-12">
+      <h1 class="page-title">Following</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p class="page-title-translate">フォロー一覧</p><br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10 users-contents" style="padding: 0px;">
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td class="align-middle">
+            <%= link_to user_path(user) do %>
+              <%= attachment_image_tag user, :profile_image, size:'50x50', class: "rounded-circle float-left", size:"50x50" ,fallback:"noimage.png" %>
+            <% end %>
+          </td>
+          <td class="align-middle"><%= user.name %></td>
+          <td class="align-middle">フォロー数：<%= user.following.count %></td>
+          <td class="align-middle">フォロワー数：<%= user.followers.count %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <!-- paginate users, class: "text-center" -->
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
