@@ -9,5 +9,21 @@ describe 'ユーザー認証のテスト' do
       it '新規登録に成功する' do
         fill_in 'user[name]', with: Faker::Internet.username(specifier: 5)
         fill_in 'user[email]', with: Faker::Internet.email
-        fill_in 'user[password]'
+        fill_in 'user[password]', with: 'password'
+        fill_in 'user[password_confirmation]', with: 'password'
+        click_button '新規会員登録'
+
+        expect(page).to have_content 'アカウント登録が完了しました。'
+      end
+      it '新規登録に失敗する' do
+        fill_in 'user[name]', with: ''
+        fill_in 'user[email]', with: ''
+        fill_in 'user[password]', with: ''
+        fill_in 'user[password_confirmation]', with: ''
+        click_button '新規会員登録'
+
+        expect(page).to have_content 'エラー'
+      end
+    end
+  end
 end
