@@ -27,7 +27,7 @@ https://docs.google.com/spreadsheets/d/16cVDGZIYfwsBDeq0NrInzjGLLrxm8EJHFj93byK5
 
 ## 開発環境
 - OS
-Linux(Ubuntu)
+Linux(CentOS-7 CORE)
 
 - 言語
 HTML,CSS,JavaScript,Ruby,SQL
