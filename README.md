@@ -24,3 +24,30 @@
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/16cVDGZIYfwsBDeq0NrInzjGLLrxm8EJHFj93byK56Ds/edit?usp=sharing
+
+## 開発環境
+- OS
+Linux(Ubuntu)
+
+- 言語
+HTML,CSS,JavaScript,Ruby,SQL
+
+- フレームワーク
+Ruby on Rails, Bootstrap
+
+- Railsライブラリ
+summernote, faker, devise, kaminari, refile, pry-byebug
+
+- JSライブラリ
+JQuery
+
+- インフラ
+AWS(EC2, RDS, EIP)
+
+- テストフレームワーク
+RSpec
+
+- その他ツールなど
+Vagrant,VirtualBox, Slack,Github,DesignEvo
+※メインビジュアル用イラストの作成にprocriate(ipadアプリケーション)
+
