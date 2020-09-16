@@ -29,7 +29,11 @@
               <%= attachment_image_tag user, :profile_image, size:'50x50', class: "rounded-circle float-left", size:"50x50" ,fallback:"noimage.png" %>
             <% end %>
           </td>
-          <td class="align-middle"><%= user.name %></td>
+          <td class="align-middle">
+            <%= link_to user_path(user) do %>
+              <%= user.name %>
+            <% end %>
+          </td>
           <td class="align-middle">フォロー数：<%= user.following.count %></td>
           <td class="align-middle">フォロワー数：<%= user.followers.count %></td>
         </tr>
