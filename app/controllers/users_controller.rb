@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :user_restrict, only:[:edit]
+  before_action :user_restrict, only:[:edit, :destroy]
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(15)
   end
 
   def show
@@ -28,6 +28,16 @@ class UsersController < ApplicationController
     @user = User.find(params)
     @user.destroy
     redirect_to root_path, notice: "退会しました"
+  end
+
+  def following
+    @user = User.find(params[:id])
+    @users = @user.following
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers
   end
 
   private

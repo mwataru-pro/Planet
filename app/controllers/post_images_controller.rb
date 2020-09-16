@@ -21,7 +21,7 @@ class PostImagesController < ApplicationController
   end
 
   def show
-    @post_image = PostImage.find(params[:id])
+    @post_image = PostImage.includes(comments: :user).find(params[:id])
     @comment = Comment.new
   end
 

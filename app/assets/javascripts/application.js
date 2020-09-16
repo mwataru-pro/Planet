@@ -25,6 +25,8 @@
 /* 新規投稿プレビュー表示 */
 
 $(document).on('turbolinks:load', function() {
+
+  /* 新規投稿プレビュー表示 */
   $(function(){
       // inputのidから情報の取得:検証してinputのidを確認すると分かる
       $('#post_image_image').on('change', function (e) {
@@ -37,10 +39,8 @@ $(document).on('turbolinks:load', function() {
       reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
   });
   });
-});
 
-/* プロフィール画像プレビュー */
-$(document).on('turbolinks:load', function() {
+  /* プロフィール画像プレビュー */
   $(function(){
     $('#user_profile_image').on('change', function (e) {
       var reader = new FileReader();
@@ -50,11 +50,8 @@ $(document).on('turbolinks:load', function() {
       reader.readAsDataURL(e.target.files[0]);
   });
   });
-});
 
-/* 新規記事投稿プレビュー表示 */
-
-$(document).on('turbolinks:load', function() {
+  /* 新規記事投稿プレビュー表示 */
   $(function(){
       // inputのidから情報の取得:検証してinputのidを確認すると分かる
       $('#article_article_image').on('change', function (e) {
@@ -67,7 +64,16 @@ $(document).on('turbolinks:load', function() {
       reader.readAsDataURL(e.target.files[0]); //取得したurlにアップロード画像のurlを挿入
   });
   });
+
+  /* topアニメーション */
+  $(function () {
+    setTimeout(function (){
+      $(".head").addClass("animate__animated animate__swing");
+    },800);
+  });
+
 });
+
 
 $(function(){
   setTimeout("$('#notice').fadeOut('slow')", 5000);
@@ -118,13 +124,3 @@ viewFrame(150);
 // });
 // });
 
-/* topアニメーション */
-
-
-$(document).on('turbolinks:load', function() {
-$(function () {
-  setTimeout(function (){
-    $(".head").addClass("animate__animated animate__swing");
-  },800);
-});
-});

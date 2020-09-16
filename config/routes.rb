@@ -20,9 +20,14 @@ Rails.application.routes.draw do
     resource :favorites, only:[:create, :destroy]
     resources :comments, only:[:create, :destroy]
   end
-  resources :users, only: [:index, :show, :edit, :update, :destroy]
+  resources :users, only: [:index, :show, :edit, :update, :destroy] do
+    member do
+      get :following, :followers
+    end
+  end
   resources :articles, only: [:index, :show]
 
+  resources :relationships, only: [:create,:destroy]
   # 管理者関係
   namespace :admin do
     root 'homes#top'
