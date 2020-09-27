@@ -16,13 +16,21 @@
 ### ターゲットユーザ
 20代〜50代くらいまで幅広い世代を想定
 
-## 一部サイトのデモ動画
+## サイト一部抜粋
 ### JSで複数枚画像の表示切り替えによるメインビジュアルのアニメーション化。
 ![planet-demo (1)](https://user-images.githubusercontent.com/62271857/94343316-387d8300-0052-11eb-8374-304ce642ed6d.gif)<br>
 画面右側のフォントなどのアニメーションはAnimate.cssによる実装。
 
-### Bootstrapのアコーディオン機能でコメントを短縮表示
+### Bootstrapのアコーディオン機能でコメントを短縮表示。
 ![Videotogif](https://user-images.githubusercontent.com/62271857/94346477-d9c30400-0067-11eb-9403-5872742323e7.gif)
+
+### gem 'summernote'でのリッチテキストエディタの搭載により、見やすい記事作り環境を整備。
+閲覧者側の実際の記事
+<img width="1440" alt="スクリーンショット 2020-09-27 15 17 21" src="https://user-images.githubusercontent.com/62271857/94357759-80de8480-00d6-11eb-9e54-bac59acde329.png">
+
+
+管理者画面での記事作成(ドラック＆ドロップによる画像挿入も可能)
+<img width="1440" alt="スクリーンショット 2020-09-27 15 26 46" src="https://user-images.githubusercontent.com/62271857/94357781-af5c5f80-00d6-11eb-9c81-5633154482f5.png">
 
 ## 設計書
 
