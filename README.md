@@ -39,28 +39,23 @@ https://docs.google.com/spreadsheets/d/16cVDGZIYfwsBDeq0NrInzjGLLrxm8EJHFj93byK5
 ### AWS構想図
 ![AWS構想図](https://user-images.githubusercontent.com/62271857/94328693-74333100-ffef-11ea-8fcc-5d389bf53ebc.jpg)
 
-## 開発環境
-- OSなど<br>
-Linux(CentOS-7 CORE),Nginx,Puma
+## 使用言語・技術・環境
 
-- 使用言語<br>
-HTML,CSS,JavaScript,Ruby(2.5.7),MySQL(5.5.62)
+* JavaScript
+* Ruby(2.5.7)
+* Ruby on Rails(5.2.4.3)
+* MySQL(5.5.62)
+* Nginx
+* Puma
+* Bootstrap4
+* Animate.css
+* RSpec
+* JQuwry
+* Gem(summernote, faker, devise, kaminari, refile, pry-byebug)
 
-- フレームワーク<br>
-Ruby on Rails(5.2.4.3), Bootstrap4
+### インフラ
+* AWS(EC2, RDS, EIP,VPC,Route53)
 
-- Railsライブラリ<br>
-summernote, faker, devise, kaminari, refile, pry-byebug
-
-- JSライブラリ<br>
-JQuery
-
-- インフラ<br>
-AWS(EC2, RDS, EIP,VPC,Route53)
-
-- テストフレームワーク<br>
-RSpec
-
-- その他ツール<br>
-Vagrant,VirtualBox,Slack,Github,DesignEvo,Capistrano3,Animate.css
-※メインビジュアル用イラストの作成にprocriate(ipadアプリケーション)
+### その他ツール
+* Vagrant,VirtualBox
+* メインビジュアル用イラストの作成にprocriate(ipadアプリケーション)
