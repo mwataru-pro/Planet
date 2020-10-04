@@ -5,8 +5,7 @@
 こちらは観葉植物専門のSNSです。<br>
 『Planet』は、植物を意味する「Plants」と情報や人と人との繋がりを意味する「Network」を組み合わせた造語です。植物を通して世界中広く繋がりを持てるようにという思いを込めて命名しました。
 また、単純なSNSとしてだけでなく、観葉植物に関する育て方やオススメの植物の紹介を記事にして投稿されるので、情報サイトとしての機能も持たせています。自身のお気に入りの植物の写真を投稿・共有したり、育て方を調べて日々のプランツライフを充実したものにできる手助けとなれれば幸いです。<br>
-現在制作中ですが、情報記事から購入に繋げるため、観葉植物専門ECサイト制作も進行中です。
-サイトはこちらからご覧ください。(http://plants-and-network.work/)
+サイトはこちらのリンク先からご覧になれます。(http://plants-and-network.work/)
 
 ### テーマを選んだ理由
 以前勤めていた観葉植物専門店にコロナの影響で客は減ったかと聞いてみたところ、特別減ってはいないし、むしろ外出自粛と言われている中でもいらっしゃるお客様はわりと多いと聞きました。<br>
@@ -40,28 +39,23 @@ https://docs.google.com/spreadsheets/d/16cVDGZIYfwsBDeq0NrInzjGLLrxm8EJHFj93byK5
 ### AWS構想図
 ![AWS構想図](https://user-images.githubusercontent.com/62271857/94328693-74333100-ffef-11ea-8fcc-5d389bf53ebc.jpg)
 
-## 開発環境
-- OSなど<br>
-Linux(CentOS-7 CORE),Nginx,Puma
+## 使用言語・技術・環境
 
-- 使用言語<br>
-HTML,CSS,JavaScript,Ruby(2.5.7),MySQL(5.5.62)
+* JavaScript
+* Ruby(2.5.7)
+* Ruby on Rails(5.2.4.3)
+* MySQL(5.5.62)
+* Nginx
+* Puma
+* Bootstrap4
+* Animate.css
+* RSpec
+* JQuwry
+* Gem(summernote, faker, devise, kaminari, refile, pry-byebug)
 
-- フレームワーク<br>
-Ruby on Rails(5.2.4.3), Bootstrap4
+### インフラ
+* AWS(EC2, RDS, EIP,VPC,Route53)
 
-- Railsライブラリ<br>
-summernote, faker, devise, kaminari, refile, pry-byebug
-
-- JSライブラリ<br>
-JQuery
-
-- インフラ<br>
-AWS(EC2, RDS, EIP,VPC,Route53)
-
-- テストフレームワーク<br>
-RSpec
-
-- その他ツール<br>
-Vagrant,VirtualBox,Slack,Github,DesignEvo,Capistrano3,Animate.css
-※メインビジュアル用イラストの作成にprocriate(ipadアプリケーション)
+### その他ツール
+* Vagrant,VirtualBox
+* メインビジュアル用イラストの作成にprocriate(ipadアプリケーション)
