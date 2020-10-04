@@ -31,6 +31,13 @@
 管理者画面での記事作成(ドラック＆ドロップによる画像挿入も可能)
 <img width="1440" alt="スクリーンショット 2020-09-27 15 26 46" src="https://user-images.githubusercontent.com/62271857/94357781-af5c5f80-00d6-11eb-9c81-5633154482f5.png">
 
+
+### ※2020/10/04更新 課題外で作ったECサイトとの連携により植物購入者希望者への対応を可能に。(実際に購入はできません。)
+<img width="1440" alt="スクリーンショット 2020-10-04 21 46 34" src="https://user-images.githubusercontent.com/62271857/95016132-07bdcf00-068c-11eb-9815-1bb07eecf55f.png">
+<img width="1440" alt="スクリーンショット 2020-10-04 21 46 45" src="https://user-images.githubusercontent.com/62271857/95016147-16a48180-068c-11eb-88cb-3d8bdde0c37a.png">
+
+ECサイトのGitリポジトリはこちら（https://github.com/mwataru-pro/garden）
+
 ## 設計書
 
 ### 機能一覧
