@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   attachment :profile_image
 
-  validates :name, presence: true, length: { maxmum: 10 }
+  validates :name, presence: true, length: { minimum: 2, maxmum: 10 }
   validates :email, presence: true, length: { maxmum: 30 }
 
   has_many :active_relationships, class_name: "Relationship",
