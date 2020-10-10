@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe 'Userモデルのテスト', type: :model do
   # 名前を空欄で登録できない。空欄で登録しようとしたらfalse。
 
+  before do
+    @user = FactoryBot.build(:user)
+  end
+
  describe 'バリデーションのテスト' do
     let(:user) { build(:user) }
     subject { test_user.valid? }
