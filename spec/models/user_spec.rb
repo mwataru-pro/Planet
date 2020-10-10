@@ -1,23 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe 'Userモデルのテスト', type: :model do
-  # 名前を空欄で登録できない。空欄で登録しようとしたらfalse。
 
   before do
     @user = FactoryBot.build(:user)
   end
 
- describe 'バリデーションのテスト' do
-    let(:user) { build(:user) }
-    subject { test_user.valid? }
-    context 'nameカラム' do
-      let(:test_user) { user }
-      it '空欄でないこと' do
-        test_user.name = ''
-        is_expected.to eq false;
-      end
+  describe "バリデーションのテスト" do
+    it '名前、メールアドレス、パスワードが有効な状態であること' do
+      expect(@user).to be_valid
     end
- end
+
+    it '名前が空欄なら無効な状態であること' do
+      @user.name = ""
+      @user.valid?
+      expect(@user.errors[:name]).to include("を入力してください")
+    end
+
+    it 'メールアドレスが空欄なら無効な状態であること' do
+      @user.email = ""
+      @user.valid?
+      expect(@user.errors[:email]).to include("を入力してください")
+    end
+
+    it 'パスワードが空欄なら無効な状態であること' do
+      @user.password = ""
+      @user.valid?
+      expect(@user.errors[:password]).to include("を入力してください")
+    end
+  end
 
   describe 'アソシエーションのテスト' do
     context 'Post_imageモデルとの関係' do
