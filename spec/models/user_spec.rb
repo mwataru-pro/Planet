@@ -37,6 +37,12 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       expect(@user.errors[:email]).to include("は30文字以内で入力してください")
     end
 
+    it 'メールアドレスが重複する場合は無効であること' do
+      FactoryBot.create(:user)
+      @user.valid?
+      expect(@user.errors[:email]).to include("はすでに存在します")
+    end
+
     it 'パスワードが空欄なら無効な状態であること' do
       @user.password = ""
       @user.valid?

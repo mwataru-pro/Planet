@@ -5,4 +5,9 @@ FactoryBot.define do
     password { 'password' }
     password_confirmation { 'password' }
   end
+
+  factory :other_user do
+    name { Faker::Name.name }
+    email { Faker::Internet.email }
+  end
 end
