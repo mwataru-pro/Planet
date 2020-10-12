@@ -15,7 +15,7 @@ class User < ApplicationRecord
   # メールアドレスのフォーマットの検証
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   # メールアドレスの存在性の検証、一意性の検証
-  validates :email, presence: true, length: { maximum: 30 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false}
+  validates :email, presence: true, length: { maximum: 50 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false}
 
   has_many :active_relationships, class_name: "Relationship",
             foreign_key: "follower_id",

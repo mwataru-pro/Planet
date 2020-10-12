@@ -6,6 +6,7 @@ RSpec.describe 'Userモデルのテスト', type: :model do
   # spec/factories/users.rbのテストデータをbuildして＠userに代入
   before do
     @user = FactoryBot.build(:user)
+    @other_user = FactoryBot.build(:other_user)
   end
 
   describe "バリデーションのテスト" do
@@ -31,10 +32,10 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       expect(@user.errors[:email]).to include("を入力してください")
     end
 
-    it 'メールアドレスが30文字を超える場合は無効であること' do
-      @user.email = "a" * 31
+    it 'メールアドレスが50文字を超える場合は無効であること' do
+      @user.email = "a" * 51
       @user.valid?
-      expect(@user.errors[:email]).to include("は30文字以内で入力してください")
+      expect(@user.errors[:email]).to include("は50文字以内で入力してください")
     end
 
     it 'メールアドレスが重複する場合は無効であること' do
@@ -54,6 +55,37 @@ RSpec.describe 'Userモデルのテスト', type: :model do
       @user.valid?
       expect(@user.errors[:password]).to include("は6文字以上で入力してください")
     end
+  end
+
+  describe 'フォロー関連のテスト' do
+    let(:following) { create_list(:other_user, 30) } # 他人を30人作成
+    before do
+      @user.save
+      following.each do |u|
+        @user.follow(u) # 自分が30人をフォローする
+        u.follow(@user) # 他人の30人にフォローされる
+      end
+    end
+    context 'フォローのテスト' do
+      it '現ユーザーが他ユーザーをフォローしているか(following? method)' do
+        following.each do |u|
+          expect(@user.following?(u)).to be_truthy
+        end
+      end
+
+      it '現ユーザーのフォローしている人に他ユーザーは含まれているか(follow method)' do
+        following.each do |u|
+          expect(@user.following).to include(u)
+        end
+      end
+
+      it '他ユーザーのフォロワーに現ユーザーは含まれているか(follow method)' do
+        following.each do |u|
+          expect(u.followers).to include(@user)
+        end
+      end
+    end
+
   end
 
   describe 'アソシエーションのテスト' do
