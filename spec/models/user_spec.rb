@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pry-byebug'
 
 RSpec.describe 'Userモデルのテスト', type: :model do
   # beforeブロックは同ファイル内の複数のテストで同じデータが必要な場合に、コードをDRYにする為に使用
@@ -66,26 +67,52 @@ RSpec.describe 'Userモデルのテスト', type: :model do
         u.follow(@user) # 他人の30人にフォローされる
       end
     end
-    context 'フォローのテスト' do
-      it '現ユーザーが他ユーザーをフォローしているか(following? method)' do
+
+    context 'フォローする' do
+      it '自分は他人をフォローしている(following? method)' do
         following.each do |u|
           expect(@user.following?(u)).to be_truthy
         end
       end
 
-      it '現ユーザーのフォローしている人に他ユーザーは含まれているか(follow method)' do
+      it 'フォロー中のユーザの中に、他人が含まれている(follow method)' do
         following.each do |u|
           expect(@user.following).to include(u)
         end
       end
 
-      it '他ユーザーのフォロワーに現ユーザーは含まれているか(follow method)' do
+      it '他人のフォロワーの中に、自分が含まれている(follow method)' do
         following.each do |u|
           expect(u.followers).to include(@user)
         end
       end
     end
 
+    context 'フォロー解除' do
+      before do
+        following.each do |u|
+           @user.unfollow(u) # => 自分が ３０人をフォロー解除する
+        end
+      end
+
+      it '自分は誰もフォローしていない' do
+        following.each do |u|
+          expect(@user.following?(u)).to be_falsey
+        end
+      end
+
+      # it 'フォロー中のユーザの中に、他人が含まれていない' do
+      #   following.each do |u|
+      #     expect(@user.following).not_to include(u)
+      #   end
+      # end
+
+      it '他人のフォロワーの中に、自分が含まれていない' do
+        following.each do |u|
+          expect(u.followers).not_to include(@user)
+        end
+      end
+    end
   end
 
   describe 'アソシエーションのテスト' do
