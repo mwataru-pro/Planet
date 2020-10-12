@@ -1,11 +1,11 @@
-# プラネット(Plant&Network)<br>![planet_logo](https://user-images.githubusercontent.com/62271857/85227067-d0e1e700-b415-11ea-9890-305a4fee16d0.png)
+# プラネット(Plants&Network)
 
 ## サイト概要
-観葉植物専門の交流サイト<br>
-観葉植物に関する情報を閲覧できる。また、ユーザーは植物の写真を投稿・投稿に対していいねやコメントを送ることができる。
-
-### サイトテーマ
-サイトが提供する情報を観葉植物の購入や育成に役立ててもらう他、ユーザー同士で情報を共有し合える交流の場を作る。
+<img width="1440" alt="スクリーンショット 2020-09-26 12 39 04" src="https://user-images.githubusercontent.com/62271857/94329366-654f7d00-fff5-11ea-9774-0bf245fd55ef.png">
+こちらは観葉植物専門のSNSです。<br>
+『Planet』は、植物を意味する「Plants」と情報や人と人との繋がりを意味する「Network」を組み合わせた造語です。植物を通して世界中広く繋がりを持てるようにという思いを込めて命名しました。
+また、単純なSNSとしてだけでなく、観葉植物に関する育て方やオススメの植物の紹介を記事にして投稿されるので、情報サイトとしての機能も持たせています。自身のお気に入りの植物の写真を投稿・共有したり、育て方を調べて日々のプランツライフを充実したものにできる手助けとなれれば幸いです。<br>
+サイトはこちらのリンク先からご覧になれます。(http://plants-and-network.work/)
 
 ### テーマを選んだ理由
 以前勤めていた観葉植物専門店にコロナの影響で客は減ったかと聞いてみたところ、特別減ってはいないし、むしろ外出自粛と言われている中でもいらっしゃるお客様はわりと多いと聞きました。<br>
@@ -15,39 +15,54 @@
 ### ターゲットユーザ
 20代〜50代くらいまで幅広い世代を想定
 
-### 主な利用シーン
-・日々の植物の写真投稿<br>
-・枯れなど不調が出たときの投稿相談<br>
-・購入前や購入後の植物に関する情報取集
+## サイト一部抜粋
+### JSで複数枚画像の表示切り替えによるメインビジュアルのアニメーション化。
+![planet-demo (1)](https://user-images.githubusercontent.com/62271857/94343316-387d8300-0052-11eb-8374-304ce642ed6d.gif)<br>
+画面右側のフォントなどのアニメーションはAnimate.cssによる実装。
+
+### Bootstrapのアコーディオン機能でコメントを短縮表示。
+![Videotogif](https://user-images.githubusercontent.com/62271857/94346477-d9c30400-0067-11eb-9403-5872742323e7.gif)
+
+### gem 'summernote'でのリッチテキストエディタの搭載により、見やすい記事作り環境を整備。
+閲覧者側の実際の記事
+<img width="1440" alt="スクリーンショット 2020-09-27 15 17 21" src="https://user-images.githubusercontent.com/62271857/94357759-80de8480-00d6-11eb-9e54-bac59acde329.png">
+
+
+管理者画面での記事作成(ドラック＆ドロップによる画像挿入も可能)
+<img width="1440" alt="スクリーンショット 2020-09-27 15 26 46" src="https://user-images.githubusercontent.com/62271857/94357781-af5c5f80-00d6-11eb-9c81-5633154482f5.png">
+
+
+### ※2020/10/04更新 課題外で作ったECサイトとの連携により植物購入者希望者への対応を可能に。(実際に購入はできません。)
+<img width="1440" alt="スクリーンショット 2020-10-04 21 46 34" src="https://user-images.githubusercontent.com/62271857/95016132-07bdcf00-068c-11eb-9815-1bb07eecf55f.png">
+<img width="1440" alt="スクリーンショット 2020-10-04 21 46 45" src="https://user-images.githubusercontent.com/62271857/95016147-16a48180-068c-11eb-88cb-3d8bdde0c37a.png">
+
+ECサイトのGitリポジトリはこちら（https://github.com/mwataru-pro/garden）
 
 ## 設計書
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/16cVDGZIYfwsBDeq0NrInzjGLLrxm8EJHFj93byK56Ds/edit?usp=sharing
 
-## 開発環境
-- OS
-Linux(CentOS-7 CORE)
+### AWS構想図
+![AWS構想図](https://user-images.githubusercontent.com/62271857/94328693-74333100-ffef-11ea-8fcc-5d389bf53ebc.jpg)
 
-- 言語
-HTML,CSS,JavaScript,Ruby,SQL
+## 使用言語・技術・環境
 
-- フレームワーク
-Ruby on Rails, Bootstrap
+* JavaScript
+* Ruby(2.5.7)
+* Ruby on Rails(5.2.4.3)
+* MySQL(5.5.62)
+* Nginx
+* Puma
+* Bootstrap4
+* Animate.css
+* RSpec
+* JQuwry
+* Gem(summernote, faker, devise, kaminari, refile, pry-byebug)
 
-- Railsライブラリ
-summernote, faker, devise, kaminari, refile, pry-byebug
+### インフラ
+* AWS(EC2, RDS, EIP,VPC,Route53)
 
-- JSライブラリ
-JQuery
-
-- インフラ
-AWS(EC2, RDS, EIP)
-
-- テストフレームワーク
-RSpec
-
-- その他ツールなど
-Vagrant,VirtualBox, Slack,Github,DesignEvo
-※メインビジュアル用イラストの作成にprocriate(ipadアプリケーション)
-
+### その他ツール
+* Vagrant,VirtualBox
+* メインビジュアル用イラストの作成にprocriate(ipadアプリケーション)

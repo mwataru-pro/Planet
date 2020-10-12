@@ -39,10 +39,11 @@
               <!-- 会員がサインインしている時 -->
               <% if user_signed_in? %>
                 <li><%= link_to user_path(current_user.id), class: "rounded-pill" do %><i class="fas fa-user"></i> My page<% end %></li>
-                <li><%= link_to users_path, class: "rounded-pill" do %><i class="fas fa-users"></i></i> Users<% end %></li>
+                <li><%= link_to users_path, class: "rounded-pill" do %><i class="fas fa-users"></i> Users<% end %></li>
                 <li><%= link_to articles_path, class: "rounded-pill" do %><i class="far fa-newspaper"></i> Articles<% end %></li>
                 <li><%= link_to post_images_path, class: "rounded-pill" do %><i class="fab fa-pagelines"></i> Plants<% end %></li>
                 <li><%= link_to destroy_user_session_path, method: :delete, class: "rounded-pill" do %><i class="fas fa-sign-out-alt"></i> Sign out<% end %></li>
+                <li><li><a href="http://176.32.80.134/" class="rounded-pill"><i class="fas fa-sign-in-alt"></i> EC-Site</a></li></li>
                 <!-- <div class="button collapse1" style="color: white;">クリック</div> -->
               <!-- 管理者がログインしている時 -->
               <% elsif admin_signed_in? %>
@@ -57,6 +58,7 @@
                 <li><%= link_to post_images_path, class: "rounded-pill" do %><i class="fab fa-pagelines"></i> Plants<% end %> </li>
                 <li><%= link_to new_user_session_path, class: "rounded-pill" do %><i class="fas fa-sign-in-alt"></i> Sign in<% end %></li>
                 <li><%= link_to new_user_registration_path, class: "rounded-pill" do %><i class="fas fa-user-plus"></i> Sign up<% end %></li>
+                <li><a href="http://176.32.80.134/" class="rounded-pill"><i class="fas fa-sign-in-alt"></i> EC-Site</a></li>
               <% end %>
             </ul>
           </ul>
