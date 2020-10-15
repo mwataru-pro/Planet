@@ -13,12 +13,24 @@ RSpec.describe 'PostImageモデルのテスト', type: :model do
         post_image.title = ""
         expect(post_image.valid?).to eq false;
       end
+
+      it '空欄ならば無効な状態でエラーメッセージが表示されること' do
+        post_image.title = ""
+        post_image.valid?
+        expect(post_image.errors[:title]).to include("を入力してください")
+      end
     end
 
     context 'contentカラム' do
       it '空欄でないこと' do
         post_image.content = ""
         expect(post_image.valid?).to eq false;
+      end
+
+      it '空欄ならば無効な状態でエラーメッセージが表示されること' do
+        post_image.content = ""
+        post_image.valid?
+        expect(post_image.errors[:content]).to include("を入力してください")
       end
     end
   end
