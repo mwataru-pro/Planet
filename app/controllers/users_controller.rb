@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :user_restrict, only:[:edit, :destroy]
+  before_action :check_guest, only: [:update]
 
   def index
     @users = User.all.page(params[:page]).per(15)
@@ -49,6 +50,13 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     if user != current_user
       redirect_to post_images_path, notice: "⚠️他人の会員情報は編集できません"
+    end
+  end
+
+  def check_guest
+    @user = User.find(params[:id])
+    if @user.email == 'guest@example.com' && @user.name == 'ゲストユーザー'
+      redirect_to user_path(@user.id), notice: 'ゲストユーザーの情報は変更できません'
     end
   end
 end
