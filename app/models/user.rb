@@ -40,4 +40,12 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+  # ゲストユーザーを探す、ゲストユーザーを作成する
+  def self.guest
+    # find_or create_by = 引数の条件に該当するデータがあればそれを返す(find_by)なければ作成(create)
+    find_or_create_by!(name: 'ゲストユーザー', email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64 # SecureRandom = 乱数生成、urlsafe_base64 = ランダムでURL-safeなbase64文字列を生成して返す
+    end
+  end
 end
